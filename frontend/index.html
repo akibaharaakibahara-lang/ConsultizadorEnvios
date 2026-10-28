@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cotizador de servicios de paquetería V1" />
+    <title>V1 | Cotizador de paquetería</title>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="V1 inicio">
+            <span class="brand-icon">V1</span>
+            <span class="brand-name">V1 <small>Logística inteligente</small></span>
+        </a>
+
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="nav-link active" href="#cotizador">Cotizar envío</a>
+            <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">
+                    <span class="status-dot"></span>
+                    COTIZADOR DE PAQUETERÍA
+                </span>
+
+                <h1>Envía más fácil.<br /><span>Cotiza en segundos.</span></h1>
+
+                <p>
+                    Compara opciones de envío según el origen, destino y peso
+                    de tu paquete. Rápido, sencillo y sin complicaciones.
+                </p>
+
+                <div class="hero-benefits">
+                    <span><span class="check">✓</span> Cotización sencilla</span>
+                    <span><span class="check">✓</span> Diferentes paqueterías</span>
+                </div>
+            </div>
+
+            <div class="hero-decoration" aria-hidden="true">
+                <div class="decoration-circle circle-one"></div>
+                <div class="decoration-circle circle-two"></div>
+                <div class="package-illustration">
+                    <div class="package-top"></div>
+                    <div class="package-front">
+                        <div class="package-tape"></div>
+                        <div class="package-label">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="package-shadow"></div>
+                </div>
+                <div class="floating-card">
+                    <span class="floating-icon">↗</span>
+                    <div>
+                        <strong>Tu envío, a tu manera</strong>
+                        <small>Simple y transparente</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section" id="cotizador">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">COTIZACIÓN</span>
+                    <h2>Calcula tu envío</h2>
+                    <p>Completa los datos para conocer las opciones disponibles.</p>
+                </div>
+                <div class="step-indicator">
+                    <span class="step-number">01</span>
+                    <span>Datos del envío</span>
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <form id="quote-form">
+                    <div class="form-section-title">
+                        <span class="form-icon">⌖</span>
+                        <div>
+                            <h3>Ruta del paquete</h3>
+                            <p>Indica de dónde sale y a dónde llegará tu envío.</p>
+                        </div>
+                    </div>
+
+                    <div class="route-grid">
+                        <div class="field">
+                            <label for="origin">Código postal de origen</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon" aria-hidden="true">⌂</span>
+                                <input id="origin" name="origin" type="text" inputmode="numeric" pattern="[0-9]{5}"
+                                    minlength="5" maxlength="5" placeholder="Ej. 64000" autocomplete="postal-code"
+                                    required />
+                            </div>
+                            <small class="field-hint">Código postal de recolección</small>
+                        </div>
+
+                        <div class="route-connector" aria-hidden="true">
+                            <span>→</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="destination">Código postal de destino</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon" aria-hidden="true">⌖</span>
+                                <input id="destination" name="destination" type="text" inputmode="numeric"
+                                    pattern="[0-9]{5}" minlength="5" maxlength="5" placeholder="Ej. 03100"
+                                    autocomplete="postal-code" required />
+                            </div>
+                            <small class="field-hint">Código postal de entrega</small>
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <div class="form-section-title">
+                        <span class="form-icon">▧</span>
+                        <div>
+                            <h3>Características del paquete</h3>
+                            <p>Necesitamos estos datos para calcular la tarifa.</p>
+                        </div>
+                    </div>
+
+                    <div class="details-grid">
+                        <div class="field">
+                            <label for="weight">Peso del paquete (kg)</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon" aria-hidden="true">⚖</span>
+                                <input id="weight" name="weight" type="number" min="0.01" max="1000" step="0.01"
+                                    placeholder="Ej. 2.5" required />
+                                <span class="input-suffix">kg</span>
+                            </div>
+                            <small class="field-hint">Peso en kilogramos</small>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Correo electrónico</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon" aria-hidden="true">✉</span>
+                                <input id="email" name="email" type="email" placeholder="tu@correo.com"
+                                    autocomplete="email" required />
+                            </div>
+                            <small class="field-hint">
+                                Recibirás información sobre tu cotización.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <p><span class="secure-icon">✓</span> Tus datos se utilizarán para gestionar tu cotización.</p>
+                        <button class="primary-button" type="submit">
+                            Cotizar envío
+                            <span aria-hidden="true">→</span>
+                        </button>
+                    </div>
+
+                    <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="results-section" aria-live="polite">
+            <div class="results-placeholder">
+                <div class="results-icon">↗</div>
+                <h2>Tu cotización aparecerá aquí</h2>
+                <p>
+                    Completa el formulario para comenzar. Te mostraremos los
+                    resultados cuando conectemos el cotizador con el sistema.
+                </p>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="como-funciona">
+            <div class="section-label">SENCILLO Y PRÁCTICO</div>
+            <h2>¿Cómo funciona?</h2>
+
+            <div class="steps-grid">
+                <article class="step-card">
+                    <span class="step-card-number">01</span>
+                    <h3>Ingresa los datos</h3>
+                    <p>Indica los códigos postales, el peso y tu correo electrónico.</p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-card-number">02</span>
+                    <h3>Calcula tu envío</h3>
+                    <p>El sistema consultará las tarifas disponibles para tu ruta.</p>
+                </article>
+
+                <article class="step-card">
+                    <span class="step-card-number">03</span>
+                    <h3>Consulta las opciones</h3>
+                    <p>Revisa las opciones de paquetería y sus precios disponibles.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a class="footer-brand" href="/">V1</a>
+        <p>© 2026 V1 · Sistema de cotizaciones de paquetería</p>
+        <span>Logística inteligente</span>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
