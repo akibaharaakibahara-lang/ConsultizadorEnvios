@@ -1,0 +1,7 @@
+1. Criterio para determinar la zona
+
+¿Las zonas se determinarán con los mismos rangos de distancia para todas las paqueterías o cada proveedor maneja sus propios criterios y zonas? Es decir, ¿debemos utilizar una clasificación general (zona 1 hasta 100 km, zona 2 hasta 500 km, zona 3 hasta 1,000 km y zona 4 para distancias mayores) o la zona puede variar dependiendo de la paquetería?
+
+2. Cálculo de la distancia entre códigos postales
+
+Por el momento, estoy considerando obtener las coordenadas geográficas de los códigos postales de origen y destino y calcular la distancia en línea recta entre ambos puntos mediante la fórmula de Haversine. ¿Este enfoque es suficiente para determinar la zona o necesitan que utilicemos una API externa que calcule la distancia real por carretera, considerando las calles y rutas disponibles?
