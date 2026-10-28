@@ -1,0 +1,5 @@
+carrier_id,nombre,tipo_servicio,activo
+CARR-01,DHL,aéreo,si
+CARR-02,Estafeta,terrestre,si
+CARR-03,FedEx,aéreo,si
+CARR-04,Redpack,terrestre,no
