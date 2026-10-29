@@ -1,5 +1,5 @@
-from datetime import datetime
-from sqlalchemy import DateTime
+from datetime import date, datetime
+from sqlalchemy import Date, DateTime
 from sqlalchemy import (
     Boolean,
     CheckConstraint,
@@ -23,6 +23,12 @@ class Paqueteria(Base):
     nombre: Mapped[str] = mapped_column(String(100), nullable=False)
     tipo_servicio: Mapped[str] = mapped_column(String(50), nullable=False)
     activo: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    volumetrico: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, default=False
+    )
+    volumetrico_desde: Mapped[date | None] = mapped_column(
+        Date, nullable=True
+    )
 
 
 class Tarifa(Base):
@@ -67,8 +73,47 @@ class SolicitudCotizacion(Base):
     codigo_postal2: Mapped[str] = mapped_column(String(10), nullable=False)
     peso: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     zona: Mapped[int] = mapped_column(Integer, nullable=False)
+    largo: Mapped[float | None] = mapped_column(Numeric(10, 2), nullable=True)
+    ancho: Mapped[float | None] = mapped_column(Numeric(10, 2), nullable=True)
+    alto: Mapped[float | None] = mapped_column(Numeric(10, 2), nullable=True)
+    peso_volumetrico: Mapped[float | None] = mapped_column(
+        Numeric(10, 2), nullable=True
+    )
     fecha_creacion: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=lambda: datetime.now().astimezone(),
         nullable=False,
+    )
+
+
+class Cotizacion(Base):
+    __tablename__ = "cotizaciones"
+
+    id: Mapped[int] = mapped_column(
+        Integer, primary_key=True, autoincrement=True
+    )
+    solicitud_id: Mapped[int] = mapped_column(
+        ForeignKey("solicitudes_cotizacion.id"), nullable=False, index=True
+    )
+    referencia_historica: Mapped[str | None] = mapped_column(
+        String(30), unique=True, nullable=True
+    )
+    paqueteria: Mapped[str] = mapped_column(String(100), nullable=False)
+    precio_cotizado: Mapped[float] = mapped_column(
+        Numeric(12, 2), nullable=False
+    )
+    peso_min: Mapped[float | None] = mapped_column(
+        Numeric(10, 2), nullable=True
+    )
+    peso_max: Mapped[float | None] = mapped_column(
+        Numeric(10, 2), nullable=True
+    )
+    peso_facturable: Mapped[float | None] = mapped_column(
+        Numeric(10, 2), nullable=True
+    )
+    dias_entrega: Mapped[str | None] = mapped_column(
+        String(20), nullable=True
+    )
+    vigencia_desde: Mapped[str | None] = mapped_column(
+        String(10), nullable=True
     )

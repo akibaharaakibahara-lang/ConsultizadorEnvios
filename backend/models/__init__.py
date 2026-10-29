@@ -3,6 +3,7 @@ from .database_models import (
     Paqueteria,
     Tarifa,
     SolicitudCotizacion,
+    Cotizacion,
 )
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     "Paqueteria",
     "Tarifa",
     "SolicitudCotizacion",
+    "Cotizacion",
 ]

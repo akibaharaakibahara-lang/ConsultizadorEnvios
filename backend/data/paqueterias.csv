@@ -1,5 +1,5 @@
-carrier_id,nombre,tipo_servicio,activo
-CARR-01,DHL,aéreo,si
-CARR-02,Estafeta,terrestre,si
-CARR-03,FedEx,aéreo,si
-CARR-04,Redpack,terrestre,no
+carrier_id,nombre,tipo_servicio,activo,volumetrico,volumetrico_desde
+CARR-01,DHL,aéreo,si,si,2026-11-01
+CARR-02,Estafeta,terrestre,si,no,
+CARR-03,FedEx,aéreo,si,si,2026-11-01
+CARR-04,Redpack,terrestre,no,no,
